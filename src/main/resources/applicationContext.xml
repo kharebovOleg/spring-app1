@@ -11,37 +11,39 @@
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="rock"
-          class="org.example.RockMusic">
+          class="org.example.RockMusic"
+            scope="prototype"
+            init-method="doMyInit"
+            destroy-method="doMyDestroy"
+            factory-method="getRockMusic">
     </bean>
 
-    <bean id="jazz"
-          class="org.example.JazzMusic">
-    </bean>
+<!--    <bean id="jazz"-->
+<!--          class="org.example.JazzMusic">-->
+<!--    </bean>-->
 
-    <bean id="classic"
-          class="org.example.ClassicalMusic">
-    </bean>
+<!--    <bean id="classic"-->
+<!--          class="org.example.ClassicalMusic">-->
+<!--    </bean>-->
 
-    <bean id="musicList"
-          class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="rock"/>
-                <ref bean="jazz"/>
-                <ref bean="classic"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
-
-
-    <bean id = "musicPlayer"
-          class="org.example.MusicPlayer"
-            scope="prototype">
-        <property name="musicList" ref="musicList"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id="musicList"-->
+<!--          class="java.util.ArrayList">-->
+<!--        <constructor-arg>-->
+<!--            <list>-->
+<!--                <ref bean="rock"/>-->
+<!--                <ref bean="jazz"/>-->
+<!--                <ref bean="classic"/>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+<!--    -->
+<!--    <bean id = "musicPlayer"-->
+<!--          class="org.example.MusicPlayer"-->
+<!--            scope="prototype">-->
+<!--        <property name="musicList" ref="musicList"/>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 
 
